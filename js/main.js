@@ -47,7 +47,7 @@ const pacientes = [
   {
     paciente: {
       nombre: "Isabel",
-      edad: 63,
+      edad: 66,
       sexo: "M",
     },
     diasIngresado: 6,
@@ -75,11 +75,14 @@ const mediaEdadMujeres = (pacientes) =>
         acumulador + paciente.edad / personas.length,
       0
     );
+const numeroJubilados = (pacientes) =>
+  pacientes.filter(({ paciente }) => paciente.edad >= 65).length;
 const analisisPacientes = (pacientes) => ({
   nPacientes: pacientes.length,
   nMayoresEdad: nMayoresEdad(pacientes),
   nHombresDiabeticos: nHombresDiabeticos(pacientes),
   totalDiasIngreso: totalDiasIngreso(pacientes),
   mediaEdadMujeres: mediaEdadMujeres(pacientes),
+  nJubilados: numeroJubilados(pacientes),
 });
 console.log(analisisPacientes(pacientes));
